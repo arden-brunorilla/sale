@@ -14,7 +14,7 @@ public class SaleItem {
     @Id
     private UUID itemId;
 
-    private UUID carId;                    // referencia al Car
+    private UUID carId;
     private BigDecimal agreedPrice;
     private BigDecimal lineDiscount;
     private BigDecimal lineTaxes;
