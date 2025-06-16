@@ -20,4 +20,7 @@ public class SaleItem {
     private BigDecimal lineTaxes;
     private BigDecimal lineSubtotal;
     private LocalDate promisedDeliveryDate;
+    @Column(name = "origin_stock_id", nullable = false)
+    private UUID originStockId;
+
 }

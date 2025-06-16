@@ -1,5 +1,6 @@
 package com.branacar.sale.client;
 
+import com.branacar.sale.client.dto.CarDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

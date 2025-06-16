@@ -1,8 +1,8 @@
 package com.branacar.sale.service;
-
-
 import com.branacar.sale.client.CarClient;
-import com.branacar.sale.client.CarDto;
+import com.branacar.sale.client.StockClient;
+import com.branacar.sale.client.dto.CarDto;
+import com.branacar.sale.client.dto.NewMovementRequest;
 import com.branacar.sale.controller.NewSaleRequest;
 import com.branacar.sale.controller.SaleResponse;
 import com.branacar.sale.model.*;
@@ -10,6 +10,7 @@ import com.branacar.sale.model.SaleStatus;
 import com.branacar.sale.model.person.Client;
 import com.branacar.sale.model.person.Employee;
 import com.branacar.sale.repository.*;
+import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,8 @@ public class SaleService {
     private final ClientRepository clientRepo;
     private final EmployeeRepository employeeRepo;
     private final CarClient carClient;
+    private final StockClient stockClient;
+
 
     @Transactional
     public SaleResponse createSale(NewSaleRequest req) {
@@ -73,5 +76,25 @@ public class SaleService {
 
         saleRepo.save(sale);
         return SaleResponse.from(sale);
+    }
+    public Sale closeSale(UUID saleId, UUID destinationStockId) {
+
+        Sale sale = saleRepo.findById(saleId)
+                .orElseThrow(() -> new NotFoundException("Sale not found"));
+
+        if (sale.getStatus() != SaleStatus.OPEN) {
+            throw new IllegalStateException("Sale already closed or cancelled");
+        }
+
+        sale.getItems().forEach(item -> {
+            stockClient.move(new NewMovementRequest(
+                    item.getCarId(),
+                    item.getOriginStockId(),
+                    destinationStockId,
+                    MovementReason.SALE));
+        });
+
+        sale.setStatus(SaleStatus.CLOSED);
+        return sale;
     }
 }

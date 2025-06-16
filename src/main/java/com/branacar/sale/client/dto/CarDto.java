@@ -1,4 +1,4 @@
-package com.branacar.sale.client;
+package com.branacar.sale.client.dto;
 
 import java.math.BigDecimal;
 import java.util.UUID;
