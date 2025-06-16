@@ -1,4 +1,4 @@
-package com.branacar.sale.controller.dto;
+package com.branacar.sale.controller;
 
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;

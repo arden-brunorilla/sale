@@ -3,8 +3,8 @@ package com.branacar.sale.service;
 
 import com.branacar.sale.client.CarClient;
 import com.branacar.sale.client.CarDto;
-import com.branacar.sale.controller.dto.NewSaleRequest;
-import com.branacar.sale.controller.dto.SaleResponse;
+import com.branacar.sale.controller.NewSaleRequest;
+import com.branacar.sale.controller.SaleResponse;
 import com.branacar.sale.model.*;
 import com.branacar.sale.model.SaleStatus;
 import com.branacar.sale.model.person.Client;

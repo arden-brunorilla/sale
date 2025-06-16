@@ -1,0 +1,46 @@
+{
+  "clients": [
+    {
+      "clientId": "eb7e3a2f-1b54-4f18-a5f4-6dbdf5e2e8a6",
+      "dni": "34271984",
+      "name": "Carlos Ramírez"
+    },
+    {
+      "clientId": "76f4a94e-04c6-4b57-9ac5-b24e5f1e2a2f",
+      "dni": "29837465",
+      "name": "Lucía Fernández"
+    },
+    {
+      "clientId": "4129b5d2-7289-44de-b3d0-1c4f0fd3199b",
+      "dni": "38190572",
+      "name": "Martín Gómez"
+    },
+    {
+      "clientId": "86e44ff1-d6f0-4dc2-8c52-56a3f3c08093",
+      "dni": "40328519",
+      "name": "Valentina Ríos"
+    },
+    {
+      "clientId": "db30f50e-6f58-4d0c-a28a-2a7cf9c30423",
+      "dni": "31574826",
+      "name": "Javier Morales"
+    }
+  ],
+  "employees": [
+    {
+      "employeeId": "9f56b912-c518-4a2c-9f43-f91a4e71a3a2",
+      "name": "Ana López",
+      "role": "Sales Rep"
+    },
+    {
+      "employeeId": "a1b7c1ef-82fc-4c3e-92bb-2e027d89cb2a",
+      "name": "Sofía Méndez",
+      "role": "Manager"
+    },
+    {
+      "employeeId": "7a2c61e4-8045-4b17-9102-1d0a9dd9e9f3",
+      "name": "Diego Torres",
+      "role": "Admin"
+    }
+  ]
+}

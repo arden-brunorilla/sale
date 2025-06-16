@@ -1,7 +1,5 @@
-package com.branacar.sale.controller.dto;
+package com.branacar.sale.controller;
 
-import com.branacar.sale.controller.dto.NewSaleRequest;
-import com.branacar.sale.controller.dto.SaleResponse;
 import com.branacar.sale.service.SaleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
