@@ -1,4 +1,4 @@
-package com.branacar.sale.controller;
+package com.branacar.sale.controller.dto;
 
 import com.branacar.sale.model.Sale;
 import com.branacar.sale.model.SaleStatus;

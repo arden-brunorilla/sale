@@ -1,4 +1,4 @@
-package com.branacar.sale.controller;
+package com.branacar.sale.controller.dto;
 
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
@@ -11,5 +11,6 @@ public record NewSaleRequest(
         @NotNull UUID employeeId,
         @DecimalMin("0.0") BigDecimal agreedPrice,
         @DecimalMin("0.0") BigDecimal lineDiscount,
-        @NotNull LocalDate promisedDeliveryDate
+        @NotNull LocalDate promisedDeliveryDate,
+        @NotNull UUID originStockId
 ) { }

@@ -3,8 +3,8 @@ import com.branacar.sale.client.CarClient;
 import com.branacar.sale.client.StockClient;
 import com.branacar.sale.client.dto.CarDto;
 import com.branacar.sale.client.dto.NewMovementRequest;
-import com.branacar.sale.controller.NewSaleRequest;
-import com.branacar.sale.controller.SaleResponse;
+import com.branacar.sale.controller.dto.NewSaleRequest;
+import com.branacar.sale.controller.dto.SaleResponse;
 import com.branacar.sale.model.*;
 import com.branacar.sale.model.SaleStatus;
 import com.branacar.sale.model.person.Client;
@@ -57,6 +57,7 @@ public class SaleService {
                 .carId(req.carId())
                 .agreedPrice(subtotal)
                 .lineDiscount(discounts)
+                .originStockId(req.originStockId())
                 .lineTaxes(BigDecimal.ZERO)
                 .lineSubtotal(total)
                 .promisedDeliveryDate(req.promisedDeliveryDate())
@@ -77,8 +78,15 @@ public class SaleService {
         saleRepo.save(sale);
         return SaleResponse.from(sale);
     }
-    public Sale closeSale(UUID saleId, UUID destinationStockId) {
 
+    public Sale getSale(UUID id) {
+        return saleRepo.findById(id)
+                .orElseThrow(() -> new NotFoundException("Sale not found"));
+    }
+
+    @Transactional
+    public Sale closeSale(UUID saleId, UUID destinationStockId) {
+        System.out.println("Closing sale " + saleId);
         Sale sale = saleRepo.findById(saleId)
                 .orElseThrow(() -> new NotFoundException("Sale not found"));
 
