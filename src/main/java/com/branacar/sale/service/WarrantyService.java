@@ -29,6 +29,8 @@ public class WarrantyService {
         Warranty w = Warranty.builder()
                 .warrantyId(UUID.randomUUID())
                 .sale(sale)
+                .carId(req.carId())
+                .clientId(req.clientId())
                 .status(WarrantyStatus.ACTIVE)
                 .startDate(LocalDate.now())
                 .endDate(req.endDate())

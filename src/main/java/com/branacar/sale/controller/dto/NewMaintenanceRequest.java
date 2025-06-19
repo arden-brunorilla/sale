@@ -6,6 +6,8 @@ import java.util.UUID;
 
 public record NewMaintenanceRequest(
         @NotNull UUID carId,
+        @NotNull UUID clientId,
         @NotNull LocalDate scheduledDate,
-        String description
+        String description,
+        UUID warrantyId
 ) {}

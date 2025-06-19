@@ -8,6 +8,8 @@ import java.util.UUID;
 public record WarrantyDto(
         UUID warrantyId,
         UUID saleId,
+        UUID carId,
+        UUID clientId,
         WarrantyStatus status,
         LocalDate startDate,
         LocalDate endDate,
@@ -17,6 +19,8 @@ public record WarrantyDto(
         return new WarrantyDto(
                 w.getWarrantyId(),
                 w.getSale().getSaleId(),
+                w.getCarId(),
+                w.getClientId(),
                 w.getStatus(),
                 w.getStartDate(),
                 w.getEndDate(),

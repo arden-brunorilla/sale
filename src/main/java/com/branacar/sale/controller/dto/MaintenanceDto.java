@@ -8,6 +8,8 @@ import java.util.UUID;
 public record MaintenanceDto(
         UUID maintenanceId,
         UUID carId,
+        UUID clientId,
+        UUID warrantyId,
         LocalDate scheduledDate,
         MaintenanceStatus status,
         String description,
@@ -17,6 +19,8 @@ public record MaintenanceDto(
         return new MaintenanceDto(
                 m.getMaintenanceId(),
                 m.getCarId(),
+                m.getClientId(),
+                m.getWarrantyId(),
                 m.getScheduledDate(),
                 m.getStatus(),
                 m.getDescription(),

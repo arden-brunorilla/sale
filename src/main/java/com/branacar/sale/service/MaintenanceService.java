@@ -22,6 +22,8 @@ public class MaintenanceService {
         MaintenanceRecord rec = MaintenanceRecord.builder()
                 .maintenanceId(UUID.randomUUID())
                 .carId(req.carId())
+                .clientId(req.clientId())
+                .warrantyId(req.warrantyId())
                 .scheduledDate(req.scheduledDate())
                 .status(MaintenanceStatus.SCHEDULED)
                 .description(req.description())

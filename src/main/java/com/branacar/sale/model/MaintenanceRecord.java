@@ -20,6 +20,14 @@ public class MaintenanceRecord {
     @Column(nullable = false)
     private UUID carId;
 
+
+    @Column(nullable = false)
+    private UUID clientId;
+
+
+    @Column
+    private UUID warrantyId;
+
     @Column(nullable = false)
     private LocalDate scheduledDate;
     @Enumerated(EnumType.STRING)

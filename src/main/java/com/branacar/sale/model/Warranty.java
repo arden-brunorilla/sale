@@ -17,6 +17,13 @@ public class Warranty {
     @JoinColumn(name = "sale_id", nullable = false)
     private Sale sale;
 
+
+    @Column(nullable = false)
+    private UUID carId;
+
+    @Column(nullable = false)
+    private UUID clientId;
+
     @Enumerated(EnumType.STRING)
     private WarrantyStatus status;
 

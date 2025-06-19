@@ -105,8 +105,13 @@ public class SaleService {
         });
 
         sale.setStatus(SaleStatus.CLOSED);
+        
+
+        SaleItem firstItem = sale.getItems().get(0);
         warrantyService.createWarranty(new NewWarrantyRequest(
                 saleId,
+                firstItem.getCarId(),
+                sale.getClient().getClientId(),
                 LocalDate.now().plusYears(1),
                 "Garantía estándar 12 meses"
         ));

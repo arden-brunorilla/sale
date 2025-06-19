@@ -8,6 +8,8 @@ import java.util.UUID;
 
 public record NewWarrantyRequest(
         @NotNull UUID saleId,
+        @NotNull UUID carId,
+        @NotNull UUID clientId,
         @NotNull LocalDate endDate,
         @Size(max = 500) String description
 ) { }
