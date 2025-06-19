@@ -4,6 +4,7 @@ import com.branacar.sale.client.StockClient;
 import com.branacar.sale.client.dto.CarDto;
 import com.branacar.sale.client.dto.NewMovementRequest;
 import com.branacar.sale.controller.dto.NewSaleRequest;
+import com.branacar.sale.controller.dto.NewWarrantyRequest;
 import com.branacar.sale.controller.dto.SaleResponse;
 import com.branacar.sale.model.*;
 import com.branacar.sale.model.SaleStatus;
@@ -29,6 +30,7 @@ public class SaleService {
     private final EmployeeRepository employeeRepo;
     private final CarClient carClient;
     private final StockClient stockClient;
+    private final WarrantyService warrantyService;
 
 
     @Transactional
@@ -103,6 +105,11 @@ public class SaleService {
         });
 
         sale.setStatus(SaleStatus.CLOSED);
+        warrantyService.createWarranty(new NewWarrantyRequest(
+                saleId,
+                LocalDate.now().plusYears(1),
+                "Garantía estándar 12 meses"
+        ));
         return sale;
     }
 }
