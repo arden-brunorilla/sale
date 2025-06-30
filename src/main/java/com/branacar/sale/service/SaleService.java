@@ -1,5 +1,5 @@
 package com.branacar.sale.service;
-import com.branacar.sale.client.CarClient;
+import com.branacar.sale.client.CarFeignClient;
 import com.branacar.sale.client.StockClient;
 import com.branacar.sale.client.dto.CarDto;
 import com.branacar.sale.client.dto.NewMovementRequest;
@@ -28,7 +28,7 @@ public class SaleService {
     private final SaleRepository saleRepo;
     private final ClientRepository clientRepo;
     private final EmployeeRepository employeeRepo;
-    private final CarClient carClient;
+    private final CarFeignClient carClient;
     private final StockClient stockClient;
     private final WarrantyService warrantyService;
 
