@@ -23,7 +23,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class SaleService {
+public class SaleService implements ISaleService {
 
     private final SaleRepository saleRepo;
     private final ClientRepository clientRepo;
