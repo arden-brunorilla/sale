@@ -9,4 +9,5 @@ public interface ISaleService {
     SaleResponse createSale(NewSaleRequest req);
     Sale getSale(UUID id);
     Sale closeSale(UUID saleId, UUID destinationStockId);
+    SaleWithDeliveryResponse closeSaleWithDelivery(UUID saleId, UUID destinationStockId);
 }

@@ -4,6 +4,8 @@ import com.branacar.sale.client.MaintenanceClient;
 import com.branacar.sale.controller.dto.NewSaleRequest;
 import com.branacar.sale.controller.dto.SaleDto;
 import com.branacar.sale.controller.dto.SaleResponse;
+import com.branacar.sale.controller.dto.SaleWithDeliveryResponse;
+import com.branacar.sale.service.ISaleService;
 import com.branacar.sale.service.SaleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +21,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class SaleController {
 
-    private final SaleService service;
+    private final ISaleService service;
     private final MaintenanceClient maintenanceClient;
 
     @GetMapping("/{id}")
@@ -39,6 +41,12 @@ public class SaleController {
                                              @RequestParam UUID destinationStockId) {
         return ResponseEntity.ok(
                 SaleDto.from( service.closeSale(id, destinationStockId) ));
+    }
+
+    @PatchMapping("/{id}/close-with-delivery")
+    public ResponseEntity<SaleWithDeliveryResponse> closeSaleWithDelivery(@PathVariable UUID id,
+                                             @RequestParam UUID destinationStockId) {
+        return ResponseEntity.ok( service.closeSaleWithDelivery(id, destinationStockId) );
     }
 
     // Maintenance endpoints - delegating to maintenance-service

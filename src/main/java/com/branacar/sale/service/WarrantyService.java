@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class WarrantyService {
+public class WarrantyService implements IWarrantyService {
 
     private final WarrantyRepository warrantyRepo;
     private final SaleRepository saleRepo;

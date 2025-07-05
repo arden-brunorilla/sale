@@ -4,6 +4,7 @@ import com.branacar.sale.controller.dto.NewWarrantyRequest;
 import com.branacar.sale.controller.dto.WarrantyDto;
 import com.branacar.sale.model.Warranty;
 import com.branacar.sale.model.WarrantyStatus;
+import com.branacar.sale.service.IWarrantyService;
 import com.branacar.sale.service.WarrantyService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class WarrantyController {
 
-    private final WarrantyService service;
+    private final IWarrantyService service;
 
     @PostMapping
     public ResponseEntity<WarrantyDto> create(@Valid @RequestBody NewWarrantyRequest req) {
